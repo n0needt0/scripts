@@ -20,6 +20,6 @@ sed -i 's/#discovery.zen.minimum_master_nodes: 1/discovery.zen.minimum_master_no
 /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
 
-echo "marvel.agent.exporter.es.hosts: [\"search1:9200\",\"search3:9200\",\"search3:9200\"]" >> /etc/elasticsearch/elasticsearch.yml
+echo "marvel.agent.exporter.es.hosts: [\"search1:9200\",\"search2:9200\",\"search3:9200\"]" >> /etc/elasticsearch/elasticsearch.yml
 
 apt-get install ganglia-monitor nagios-nrpe-server -y
