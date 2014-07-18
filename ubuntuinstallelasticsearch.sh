@@ -15,7 +15,11 @@ sed -i 's/#transport.tcp.compress: true/transport.tcp.compress: true/g' /etc/ela
 sed -i 's/#index.number_of_replicas: 1/index.number_of_replicas: 3/g' /etc/elasticsearch/elasticsearch.yml 
 sed -i 's/#discovery.zen.minimum_master_nodes: 1/discovery.zen.minimum_master_nodes: 2/g' /etc/elasticsearch/elasticsearch.yml
 
-/etc/init.d/elasticsearch restart
+
+#deb does not add by default
+update-rc.d elasticsearch defaults 95 10
+
+/etc/init.d/elasticsearch start
 
 /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
